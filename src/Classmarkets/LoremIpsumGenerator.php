@@ -5,6 +5,10 @@ use Classmarkets\Lipsum\Dictionary;
 
 class LoremIpsumGenerator
 {
+    const FORMAT_HTML  = 'html';
+    const FORMAT_TEXT  = 'txt';
+    const FORMAT_PLAIN = 'plain';
+
     private $words;
     private $wordsPerParagraph;
     private $wordsPerSentence;
@@ -16,7 +20,7 @@ class LoremIpsumGenerator
         $this->dictionary = new Dictionary;
     }
 
-    public function getContent($count, $format = 'html', $loremipsum = true)
+    public function getContent($count, $format = self::FORMAT_HTML, $loremipsum = true)
     {
         $format = strtolower($format);
 
@@ -25,12 +29,14 @@ class LoremIpsumGenerator
         }
 
         switch ($format) {
-            case 'txt':
+            case self::FORMAT_TEXT:
                 return $this->getText($count, $loremipsum);
-            case 'plain':
+            case self::FORMAT_PLAIN:
                 return $this->getPlain($count, $loremipsum);
+            case self::FORMAT_HTML:
+                return $this->getHtml($count, $loremipsum);
             default:
-                return $this->getHTML($count, $loremipsum);
+                throw new \InvalidArgumentException(sprintf("Unsupported format '%s'", $format));
         }
     }
 
@@ -140,7 +146,7 @@ class LoremIpsumGenerator
         return $paragraphs;
     }
 
-    private function getHTML($count, $loremipsum)
+    private function getHtml($count, $loremipsum)
     {
         $sentences = $this->getPlain($count, $loremipsum, false);
         $paragraphs = $this->getParagraphArr($sentences);
