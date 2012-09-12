@@ -138,9 +138,7 @@ class LoremIpsumGenerator
                 $currCount = 0;
                 $paragraphs[] = $curr;
                 $curr = array();
-                //print_r($paragraphs);
             }
-            //print_r($paragraphs);
         }
 
         return $paragraphs;
@@ -150,7 +148,6 @@ class LoremIpsumGenerator
     {
         $sentences = $this->getPlain($count, $loremipsum, false);
         $paragraphs = $this->getParagraphArr($sentences);
-        //print_r($paragraphs);
 
         $paragraphStr = array();
         foreach ($paragraphs as $p) {
@@ -243,16 +240,10 @@ class LoremIpsumGenerator
         //   mean=0
         //   std dev=1
 
-        // auxilary vars
         $x = $this->random_0_1();
         $y = $this->random_0_1();
 
-        // two independent variables with normal distribution N(0,1)
-        $u = sqrt(-2*log($x))*cos(2*pi()*$y);
-        $v = sqrt(-2*log($x))*sin(2*pi()*$y);
-
-        // i will return only one, couse only one needed
-        return $u;
+        return sqrt(-2 * log($x)) * cos(2 * pi() * $y);
     }
 
     private function gauss_ms($m=0.0,$s=1.0)
