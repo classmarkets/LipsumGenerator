@@ -2,9 +2,9 @@
 
 namespace Classmarkets\Tests;
 
-use Classmarkets\LoremIpsumGenerator as Generator;
+use Classmarkets\LipsumGenerator as Generator;
 
-class LoremIpsumGeneratorTest extends \PHPUnit_Framework_TestCase
+class LipsumGeneratorTest extends \PHPUnit_Framework_TestCase
 {
     /** @test */
     public function firewall()

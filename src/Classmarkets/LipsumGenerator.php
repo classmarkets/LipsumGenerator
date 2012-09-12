@@ -3,7 +3,7 @@ namespace Classmarkets;
 
 use Classmarkets\Lipsum\Dictionary;
 
-class LoremIpsumGenerator
+class LipsumGenerator
 {
     const FORMAT_HTML  = 'html';
     const FORMAT_TEXT  = 'txt';
