@@ -106,8 +106,8 @@ class LoremIpsumGenerator
 
     private function getText($count, $loremipsum)
     {
-        $sentences = $this->getPlain($count, $loremipsum, false);
-        $paragraphs = $this->getParagraphArr($sentences);
+        $sentences  = $this->getPlain($count, $loremipsum, false);
+        $paragraphs = $this->getParagraphArray($sentences);
 
         $paragraphStr = array();
         foreach ($paragraphs as $p) {
@@ -119,11 +119,10 @@ class LoremIpsumGenerator
         return implode("\n\n\t", $paragraphStr);
     }
 
-    private function getParagraphArr($sentences)
+    private function getParagraphArray($sentences)
     {
-        $wordsPer = $this->wordsPerParagraph;
         $sentenceAvg = $this->wordsPerSentence;
-        $total = count($sentences);
+        $total       = count($sentences);
 
         $paragraphs = array();
         $pCount = 0;
@@ -134,7 +133,7 @@ class LoremIpsumGenerator
             $s = $sentences[$i];
             $currCount += count($s);
             $curr[] = $s;
-            if ($currCount >= ($wordsPer - round($sentenceAvg / 2.00)) || $i == $total - 1) {
+            if ($currCount >= ($this->wordsPerParagraph - round($sentenceAvg / 2.00)) || $i == $total - 1) {
                 $currCount = 0;
                 $paragraphs[] = $curr;
                 $curr = array();
@@ -146,12 +145,13 @@ class LoremIpsumGenerator
 
     private function getHtml($count, $loremipsum)
     {
-        $sentences = $this->getPlain($count, $loremipsum, false);
-        $paragraphs = $this->getParagraphArr($sentences);
+        $sentences  = $this->getPlain($count, $loremipsum, false);
+        $paragraphs = $this->getParagraphArray($sentences);
+        $indent     = str_repeat(' ', 4);
 
         $paragraphStr = array();
         foreach ($paragraphs as $p) {
-            $paragraphStr[] = "<p>\n" . $this->paragraphToString($p, true) . '</p>';
+            $paragraphStr[] = "<p>\n$indent" . $this->paragraphToString($p, true) . "\n</p>";
         }
 
         //add new lines for the sake of clean code
@@ -181,7 +181,7 @@ class LoremIpsumGenerator
     private function punctuate(& $sentence)
     {
         $count = count($sentence);
-        $sentence[$count - 1] = $sentence[$count - 1] . '.';
+        $sentence[$count - 1] .= '.';
 
         if ($count < 4) {
             return $sentence;
@@ -193,7 +193,7 @@ class LoremIpsumGenerator
             $index = (int) round($i * $count / ($commas + 1));
 
             if ($index < ($count - 1) && $index > 0) {
-                $sentence[$index] = $sentence[$index] . ',';
+                $sentence[$index] .= ',';
             }
         }
     }
@@ -237,8 +237,8 @@ class LoremIpsumGenerator
     private function gauss()
     {   // N(0,1)
         // returns random number with normal distribution:
-        //   mean=0
-        //   std dev=1
+        //   mean = 0
+        //   std dev = 1
 
         $x = $this->random_0_1();
         $y = $this->random_0_1();
@@ -246,7 +246,7 @@ class LoremIpsumGenerator
         return sqrt(-2 * log($x)) * cos(2 * pi() * $y);
     }
 
-    private function gauss_ms($m=0.0,$s=1.0)
+    private function gauss_ms($m = 0.0, $s = 1.0)
     {
         return $this->gauss() * $s + $m;
     }
