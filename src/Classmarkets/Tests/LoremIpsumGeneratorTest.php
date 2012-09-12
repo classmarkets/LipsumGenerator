@@ -11,6 +11,7 @@ class LoremIpsumGeneratorTest extends \PHPUnit_Framework_TestCase
     {
         $generator = new LoremIpsumGenerator();
         $this->assertEquals('lorem ipsum.', $generator->getContent(2, 'plain', true));
+        $this->assertEquals("\tlorem ipsum.", $generator->getContent(2, 'txt', true));
     }
 
     /** @test */

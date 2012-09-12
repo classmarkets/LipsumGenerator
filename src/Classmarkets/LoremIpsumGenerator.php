@@ -343,7 +343,7 @@ class LoremIpsumGenerator
             }
         }
 
-        return $paragraphStr;
+        return trim($paragraphStr);
     }
 
     /*
