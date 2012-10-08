@@ -84,6 +84,7 @@ class LipsumGenerator
             for ($i = $curr; $i < ($curr + $senSize); $i++) {
                 $sentence[] = $words[$i];
             }
+            $sentence[0] = ucfirst($sentence[0]);
 
             $this->punctuate($sentence);
             $curr = $curr + $senSize;

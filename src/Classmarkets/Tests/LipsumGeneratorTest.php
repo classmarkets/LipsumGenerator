@@ -10,9 +10,9 @@ class LipsumGeneratorTest extends \PHPUnit_Framework_TestCase
     public function firewall()
     {
         $generator = new Generator();
-        $this->assertEquals('lorem ipsum.',   $generator->getContent(2, Generator::FORMAT_PLAIN, true));
-        $this->assertEquals("\tlorem ipsum.", $generator->getContent(2, Generator::FORMAT_TEXT, true));
-        $this->assertEquals("<p>\n    lorem ipsum.\n</p>", $generator->getContent(2, Generator::FORMAT_HTML, true));
+        $this->assertEquals('Lorem ipsum.',   $generator->getContent(2, Generator::FORMAT_PLAIN, true));
+        $this->assertEquals("\tLorem ipsum.", $generator->getContent(2, Generator::FORMAT_TEXT, true));
+        $this->assertEquals("<p>\n    Lorem ipsum.\n</p>", $generator->getContent(2, Generator::FORMAT_HTML, true));
     }
 
     /** @test */
