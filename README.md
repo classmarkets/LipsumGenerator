@@ -1,5 +1,7 @@
 # About
 
+[![Build Status](https://secure.travis-ci.org/classmarkets/LipsumGenerator.png)](http://travis-ci.org/classmarkets/LipsumGenerator)
+
 This is a [Lorem ipsum](http://www.lipsum.com/) generator written in PHP. It is based on the work of [Mathew Tinsley](http://tinsology.net/) and has been refactored so it can be used as a composer module and to match the PSR codestyle. [The original code can be found here](http://tinsology.net/scripts/php-lorem-ipsum-generator/), or by looking at [the very first commit](https://github.com/classmarkets/LipsumGenerator/commit/aa7d9690c7cfddb029004f4b03e15d0f1a44dca9).
 
 Text generation is based on a fixed dictionary, and randomized using a Gaussian distribution of the word length. Supported output formats are HTML paragraphs (`<p/>`), preformatted and unformated plain text. Words per paragraph and number of paragraphs can be configured.
