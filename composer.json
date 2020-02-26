@@ -2,7 +2,7 @@
     "name": "classmarkets/lipsum-generator",
     "type": "library",
     "description": "Lorem Ipsum generator in pure PHP, offline. Capable of generating html, formated and unformatted plain text.",
-    "license": "BSD",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Mathew Tinsley",
