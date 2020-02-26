@@ -6,7 +6,7 @@ This is a [Lorem ipsum](http://www.lipsum.com/) generator written in PHP. It is 
 
 Text generation is based on a fixed dictionary, and randomized using a Gaussian distribution of the word length. Supported output formats are HTML paragraphs (`<p/>`), preformatted and unformated plain text. Words per paragraph and number of paragraphs can be configured.
 
-Once again, all credits for the implementation go to Mathew Tinsley, unless he stole it.
+Once again, all credits for the implementation go to Mathew Tinsley.
 
 # Usage:
 
